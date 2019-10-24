@@ -59,6 +59,16 @@ function! vimtex#syntax#load() abort " {{{1
     catch /E117:/
     endtry
   endfor
+
+"
+" Load nuweb syntax 
+"
+  try 
+    call vimtex#syntax#p#nuweb#load()
+  catch /E117:/
+  endtry
+
 endfunction
+
 
 " }}}1

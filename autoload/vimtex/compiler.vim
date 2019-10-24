@@ -206,6 +206,7 @@ function! vimtex#compiler#output() abort " {{{1
     autocmd CursorMovedI *     call s:output.update()
   augroup END
 
+
   " Set some mappings
   nnoremap <silent><nowait><buffer> q :bwipeout<cr>
   if has('nvim') || has('gui_running')

@@ -389,7 +389,7 @@ function! s:init_buffer() abort " {{{1
         \ ]
     execute 'set suffixes+=' . l:suf
   endfor
-  setlocal suffixesadd=.sty,.tex,.cls
+  setlocal suffixesadd=.sty,.tex,.cls,.nw
   setlocal comments=sO:%\ -,mO:%\ \ ,eO:%%,:%
   setlocal commentstring=%%s
   setlocal iskeyword+=:
@@ -410,6 +410,11 @@ function! s:init_buffer() abort " {{{1
     autocmd BufFilePost <buffer> call s:filename_changed_post()
     autocmd BufUnload   <buffer> call s:buffer_deleted('unload')
     autocmd BufWipeout  <buffer> call s:buffer_deleted('wipe')
+  augroup END
+
+  augroup vimnw_complier
+    autocmd!
+    autocmd BufWritePost *.nw  w | silent! execute '!nuweb -o -l <afile>'
   augroup END
 
   " Initialize buffer settings for sub modules

@@ -1,0 +1,2 @@
+
+call vimtex#syntax#init()
